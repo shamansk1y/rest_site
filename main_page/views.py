@@ -1,22 +1,24 @@
 from django.shortcuts import render, redirect
 from .context_data import get_common_context, get_page_context
+from .forms import SubscriptionForm, ContactUsForm, FastBookingForm
 
 
 def handle_post_request(request):
-    pass
-    # make_appointment = MakeAppointmentForm(request.POST)
-    # contact_us = ContactUsForm(request.POST)
-    # subscription = SubscriptionForm(request.POST)
-    #
-    # if make_appointment.is_valid():
-    #     make_appointment.save()
-    #     return redirect('/')
-    # if contact_us.is_valid():
-    #     contact_us.save()
-    #     return redirect('/')
-    # if subscription.is_valid():
-    #     subscription.save()
-    #     return redirect('/')
+    print('fast_booking')
+    fast_booking = FastBookingForm(request.POST)
+    contact_us = ContactUsForm(request.POST)
+    subscription = SubscriptionForm(request.POST)
+
+    if fast_booking.is_valid():
+        fast_booking.save()
+        return redirect('/')
+    if contact_us.is_valid():
+        contact_us.save()
+        return redirect('/')
+    if subscription.is_valid():
+        subscription.save()
+        return redirect('/')
+
 
 
 def index(request):

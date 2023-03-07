@@ -4,7 +4,7 @@ Functions:
 - get_common_context: gets the common page context used across multiple pages of the site.
 - get_page_context: gets the page context with the current request taken into account.
 """
-
+from .forms import SubscriptionForm, ContactUsForm, FastBookingForm
 from .models import Hiro, MenuItem, Servise, Team, Testimonial, About, Contacts
 
 
@@ -23,11 +23,10 @@ def get_common_context():
         'testimonial': Testimonial.objects.filter(is_visible=True),
         'about': About.objects.get(id=1),
         'contacts': Contacts.objects.get(id=1),
+        'contact_us': ContactUsForm(),
+        'fast_booking': FastBookingForm(),
+        'subscription': SubscriptionForm(),
 
-
-        # 'make_appointment': MakeAppointmentForm(),
-        # 'subscription': SubscriptionForm(),
-        # 'contact_us': ContactUsForm(),
     }
 
 

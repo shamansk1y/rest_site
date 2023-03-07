@@ -1,5 +1,6 @@
 from django.contrib import admin
-from main_page.models import Hiro, MenuItem, Servise, Testimonial, Team, About, Contacts
+from main_page.models import Hiro, MenuItem, Servise, Testimonial, Team, About, Contacts, Subscription, ContactUs,\
+    FastBooking
 
 
 @admin.register(Hiro)
@@ -59,5 +60,27 @@ class ContactsAdmin(admin.ModelAdmin):
                     'hours_of_work', 'weekend_work', 'weekend_hours_of_work', 'twi_url', 'fb_url', 'youtube_url', 'in_url']
     list_display_links = None
 
+
+@admin.register(Subscription)
+class SubscriptionAdmin(admin.ModelAdmin):
+    model = Subscription
+    list_editable = ['email', 'is_processed']
+    list_display = ['email', 'date', 'date_processing', 'is_processed']
+    list_display_links = None
+
+
+@admin.register(ContactUs)
+class ContactUsAdmin(admin.ModelAdmin):
+    model = ContactUs
+    list_editable = ['name', 'email', 'subject', 'message', 'is_processed']
+    list_display = ['name', 'email', 'subject', 'message', 'date', 'date_processing', 'is_processed']
+    list_display_links = None
+
+
+@admin.register(FastBooking)
+class FastBookingAdmin(admin.ModelAdmin):
+    model = FastBooking
+    list_editable = ['email_1', 'reservation_date_1', 'number_of_people_1', 'message_1', 'is_processed_1']
+    list_display = ['name_1', 'email_1', 'reservation_date_1', 'number_of_people_1', 'message_1', 'date_1', 'date_processing_1', 'is_processed_1']
 
 
