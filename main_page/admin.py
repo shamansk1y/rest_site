@@ -80,7 +80,8 @@ class ContactUsAdmin(admin.ModelAdmin):
 @admin.register(FastBooking)
 class FastBookingAdmin(admin.ModelAdmin):
     model = FastBooking
-    list_editable = ['email_1', 'reservation_date_1', 'number_of_people_1', 'message_1', 'is_processed_1']
-    list_display = ['name_1', 'email_1', 'reservation_date_1', 'number_of_people_1', 'message_1', 'date_1', 'date_processing_1', 'is_processed_1']
+    list_editable = ['email', 'reservation_date', 'number_of_people', 'message', 'is_processed']
+    list_display = ['name', 'email', 'reservation_date', 'number_of_people', 'message', 'date',
+                    'date_processing', 'is_processed']
 
 

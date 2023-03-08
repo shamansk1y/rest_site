@@ -60,7 +60,7 @@ class FastBookingForm(forms.ModelForm):
     )
 
 
-    name_1 = forms.CharField(
+    name = forms.CharField(
         min_length=2,
         max_length=50,
         widget=forms.TextInput(
@@ -71,7 +71,7 @@ class FastBookingForm(forms.ModelForm):
                 'placeholder': "Gurdian Name",
                 }))
 
-    email_1 = forms.EmailField(
+    email = forms.EmailField(
         widget=forms.EmailInput(
             attrs={
                 'type': "email",
@@ -79,7 +79,7 @@ class FastBookingForm(forms.ModelForm):
                 'id': "gmail",
                 'placeholder': "Gurdian Email"
             }))
-    reservation_date_1 = forms.DateTimeField(
+    reservation_date = forms.DateTimeField(
         label='Day and time booking',
         widget=forms.TextInput(attrs={
             'type': "text",
@@ -91,12 +91,12 @@ class FastBookingForm(forms.ModelForm):
         })
     )
 
-    number_of_people_1 = forms.ChoiceField(choices=PEOPLE_CHOICES,
+    number_of_people = forms.ChoiceField(choices=PEOPLE_CHOICES,
     widget=forms.Select(attrs={
             'class': 'form-control',
             'id': 'number-of-people'}))
 
-    message_1 = forms.CharField(
+    message = forms.CharField(
         max_length=250,
         widget=forms.Textarea(
             attrs={
@@ -109,7 +109,7 @@ class FastBookingForm(forms.ModelForm):
 
     class Meta:
         model = FastBooking
-        fields = ['name_1', 'email_1', 'reservation_date_1', 'number_of_people_1', 'message_1', 'is_processed_1']
+        fields = ['name', 'email', 'reservation_date', 'number_of_people', 'message', 'is_processed']
 
 
 class SubscriptionForm(forms.ModelForm):

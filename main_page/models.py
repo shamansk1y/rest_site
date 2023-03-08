@@ -227,19 +227,18 @@ class FastBooking(models.Model):
         (6, 'people 6'),
     )
 
-    name_1 = models.CharField(max_length=50)
-    email_1 = models.EmailField()
-    reservation_date_1 = models.DateTimeField()
-    number_of_people_1 = models.IntegerField(choices=PEOPLE_CHOICES)
-    message_1 = models.TextField(max_length=250, blank=True)
+    name = models.CharField(max_length=50)
+    email = models.EmailField()
+    reservation_date = models.DateTimeField(blank=True)
+    number_of_people = models.IntegerField(choices=PEOPLE_CHOICES)
+    message = models.TextField(max_length=250, blank=True)
 
-    date_1 = models.DateField(auto_now_add=True )
-    date_processing_1 = models.DateField(auto_now=True )
-    is_processed_1 = models.BooleanField(default=False)
+    date = models.DateField(auto_now_add=True )
+    date_processing = models.DateField(auto_now=True )
+    is_processed = models.BooleanField(default=False)
 
     def __str__(self):
-        return f'{self.reservation_date_1} - {self.name_1}: {self.email_1}'
-
+        return f'{self.reservation_date}: {self.email}'
     class Meta:
-        ordering = ('-date_1',)
+        ordering = ('-date',)
         verbose_name_plural = 'Швидке бронювання'
